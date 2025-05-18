@@ -19,7 +19,7 @@ class DatabaseManager(val context: Context) : SQLiteOpenHelper(context, DATABASE
                     "$COLUMN_NAME_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "${Task.COLUMN_NAME_TASK} TEXT," +
                     "${Task.COLUMN_NAME_CATEGORY} INTEGER," +
-                    "${Task.COLUMN_NAME_DONE} BOOLEAN, " +
+                    "${Task.COLUMN_NAME_DONE} INTEGER, " +
                     "CONSTRAINT fk_category " +
                     "FOREIGN KEY(${Task.COLUMN_NAME_CATEGORY}) " +
                     "REFERENCES ${Category.TABLE_NAME}($COLUMN_NAME_ID) ON DELETE CASCADE)"

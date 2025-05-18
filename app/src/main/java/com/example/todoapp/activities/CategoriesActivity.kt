@@ -27,7 +27,7 @@ class CategoriesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        //deleteDatabase("to_do_app.db")
         binding = ActivityCategoriesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

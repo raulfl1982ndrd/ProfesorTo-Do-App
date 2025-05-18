@@ -47,7 +47,8 @@ class TaskViewHolder(val binding:ItemTaskBinding) : RecyclerView.ViewHolder(bind
 
     fun render(task: Task) {
         binding.nameTextView.text = task.task
-        binding.doneCheckBox.isChecked = task.done
+
+        binding.doneCheckBox.isChecked = task.done == 1
     }
 
 }

@@ -72,7 +72,7 @@ class TaskDAO (val context: Context) {
         if (cursor.moveToNext()) {
             val id = cursor.getInt(cursor.getColumnIndex(DatabaseManager.COLUMN_NAME_ID))
             val taskName = cursor.getString(cursor.getColumnIndex(Task.COLUMN_NAME_TASK))
-            val done = cursor.getInt(cursor.getColumnIndex(Task.COLUMN_NAME_DONE)) == 1
+            val done = cursor.getInt(cursor.getColumnIndex(Task.COLUMN_NAME_DONE))
             val categoryId = cursor.getInt(cursor.getColumnIndex(Task.COLUMN_NAME_CATEGORY))
             //Log.i("DATABASE", "$id -> Task: $taskName, Done: $done")
 
@@ -105,7 +105,7 @@ class TaskDAO (val context: Context) {
         while (cursor.moveToNext()) {
             val id = cursor.getInt(cursor.getColumnIndex(DatabaseManager.COLUMN_NAME_ID))
             val taskName = cursor.getString(cursor.getColumnIndex(Task.COLUMN_NAME_TASK))
-            val done = cursor.getInt(cursor.getColumnIndex(Task.COLUMN_NAME_DONE)) == 1
+            val done = cursor.getInt(cursor.getColumnIndex(Task.COLUMN_NAME_DONE))
             val categoryId = cursor.getInt(cursor.getColumnIndex(Task.COLUMN_NAME_CATEGORY))
             //Log.i("DATABASE", "$id -> Task: $taskName, Done: $done")
 
@@ -139,7 +139,7 @@ class TaskDAO (val context: Context) {
         while (cursor.moveToNext()) {
             val id = cursor.getInt(cursor.getColumnIndex(DatabaseManager.COLUMN_NAME_ID))
             val taskName = cursor.getString(cursor.getColumnIndex(Task.COLUMN_NAME_TASK))
-            val done = cursor.getInt(cursor.getColumnIndex(Task.COLUMN_NAME_DONE)) == 1
+            val done = cursor.getInt(cursor.getColumnIndex(Task.COLUMN_NAME_DONE))
             val categoryId = cursor.getInt(cursor.getColumnIndex(Task.COLUMN_NAME_CATEGORY))
             //Log.i("DATABASE", "$id -> Task: $taskName, Done: $done")
 
@@ -161,7 +161,7 @@ class TaskDAO (val context: Context) {
         val cursor = db.query(
             Task.TABLE_NAME,                 // The table to query
             arrayOf("COUNT(*)"),     // The array of columns to return (pass null to get all)
-            "${Task.COLUMN_NAME_CATEGORY} = ${category.id} AND ${Task.COLUMN_NAME_DONE} = false",                // The columns for the WHERE clause
+            "${Task.COLUMN_NAME_CATEGORY} = ${category.id} AND ${Task.COLUMN_NAME_DONE} = 0",                // The columns for the WHERE clause
             null,          // The values for the WHERE clause
             null,                   // don't group the rows
             null,                   // don't filter by row groups

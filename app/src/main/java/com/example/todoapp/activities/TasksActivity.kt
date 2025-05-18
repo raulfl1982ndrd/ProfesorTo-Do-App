@@ -140,7 +140,7 @@ class TasksActivity : AppCompatActivity() {
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
             val taskName = binding.taskTextField.editText?.text.toString()
             if (taskName.isNotEmpty()) {
-                val task = Task(-1, taskName, false, category)
+                val task = Task(-1, taskName, 0, category)
                 taskDAO.insert(task)
                 loadData()
                 Toast.makeText(this, R.string.add_task_success_message, Toast.LENGTH_SHORT).show()
@@ -197,7 +197,12 @@ class TasksActivity : AppCompatActivity() {
 
     private fun onItemClickCheckBoxListener(position:Int) {
         val task: Task = taskList[position]
-        task.done = !task.done
+        if (task.done == 0)
+            task.done = 1
+        else
+            task.done = 0
+
+        //   task.done = !task.done
         taskDAO.update(task)
         adapter.notifyItemChanged(position)
         loadData()

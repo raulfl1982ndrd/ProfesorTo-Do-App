@@ -2,7 +2,7 @@ package com.example.todoapp.data.entities
 
 import com.example.todoapp.utils.DatabaseManager
 
-class Task (var id: Int, var task: String, var done: Boolean, var category: Category) {
+class Task (var id: Int, var task: String, var done: Int, var category: Category) {
 
     companion object {
         const val TABLE_NAME = "Tasks"
